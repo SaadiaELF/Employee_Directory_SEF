@@ -23,9 +23,9 @@ function EmployeesTable(props) {
                     </thead>
                     <tbody>
                         {props.results.map(result => (
-                            <tr>
-                                <th scope="row">{result.name.first + result.name.last}</th>
-                                <td><img alt={result.name.first + result.name.last} className="img-fluid" src={result.picture.thumbnail} /></td>
+                            <tr  key={result.login.uuid} >
+                                <th scope="row">{`${result.name.first } ${result.name.last}`}</th>
+                                <td><img alt={`${result.name.first } ${result.name.last}`} className="img-fluid" src={result.picture.thumbnail} /></td>
                                 <td>{result.dob.date}</td>
                                 <td>{result.location.city}</td>
                                 <td>{result.email}</td>
