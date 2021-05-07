@@ -17,13 +17,29 @@ class ResultContainer extends Component {
     API.getRandomEmployees()
       .then(res => this.setState({ results: res.data.results }))
       .catch(err => console.log(err));
+  };
 
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+  };
+
+  handleInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
   };
 
   render() {
     return (
       <div>
-        <Jumbotron />
+        <Jumbotron
+          search={this.state.search}
+          handleFormSubmit={this.handleFormSubmit}
+          handleInputChange={this.handleInputChange}
+        />
         <EmployeesTable results={this.state.results} />
       </div>
     );
