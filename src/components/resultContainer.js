@@ -48,6 +48,11 @@ class ResultContainer extends Component {
     this.setState({ results: this.state.results })
   };
 
+  sortByCountryHandler = () => {
+    this.state.results = this.state.results.sort((a, b) => (a.location.country > b.location.country) ? 1 : -1);
+    this.setState({ results: this.state.results })
+  };
+
   render() {
     return (
       <div>
@@ -60,6 +65,7 @@ class ResultContainer extends Component {
           results={this.state.results}
           sortByNameHandler={this.sortByNameHandler}
           sortByDOBHandler={this.sortByDOBHandler}
+          sortByCountryHandler={this.sortByCountryHandler}
         />
       </div>
     );
