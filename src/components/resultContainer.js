@@ -20,8 +20,8 @@ class ResultContainer extends Component {
   };
 
   searchHandler = (searchTerm) => {
-    this.state.results = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm) || result.name.first.toLowerCase().includes(searchTerm) || result.name.last.toLowerCase().includes(searchTerm)|| result.dob.date.toLowerCase().includes(searchTerm))
-    this.setState({ results: this.state.results})
+    this.state.results = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm) || result.name.first.toLowerCase().includes(searchTerm) || result.name.last.toLowerCase().includes(searchTerm) || result.dob.date.toLowerCase().includes(searchTerm))
+    this.setState({ results: this.state.results })
   };
 
   handleFormSubmit = event => {
@@ -37,6 +37,11 @@ class ResultContainer extends Component {
     });
   };
 
+  handleSort = () => {
+    this.state.results = this.state.results.sort((a, b) => (a.name.first> b.name.first) ? 1 : -1);
+    this.setState({ results: this.state.results })
+  };
+
   render() {
     return (
       <div>
@@ -45,7 +50,10 @@ class ResultContainer extends Component {
           handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange}
         />
-        <EmployeesTable results={this.state.results} />
+        <EmployeesTable
+          results={this.state.results}
+          handleSort={this.handleSort}
+        />
       </div>
     );
   }
