@@ -17,7 +17,7 @@ function EmployeesTable(props) {
                             <th scope="col">Name</th>
                             <th scope="col">Photo</th>
                             <th scope="col">Date of Birth</th>
-                            <th scope="col">City</th>
+                            <th scope="col">Country</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
                         </tr>
@@ -28,7 +28,7 @@ function EmployeesTable(props) {
                                 <th scope="row">{`${result.name.first } ${result.name.last}`}</th>
                                 <td><img alt={`${result.name.first } ${result.name.last}`} className="img-fluid" src={result.picture.thumbnail} /></td>
                                 <td>{dateFormat(result.dob.date, "dd, mmmm, yyyy") }</td>
-                                <td>{result.location.city}</td>
+                                <td>{result.location.country}</td>
                                 <td>{result.email}</td>
                                 <td>{result.cell}</td>
                             </tr>
