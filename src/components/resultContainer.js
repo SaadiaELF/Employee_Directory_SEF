@@ -21,8 +21,8 @@ class ResultContainer extends Component {
   };
 
   searchHandler = (searchTerm) => {
-    this.state.results = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm) || result.name.first.toLowerCase().includes(searchTerm) || result.name.last.toLowerCase().includes(searchTerm) || result.dob.date.toLowerCase().includes(searchTerm))
-    this.setState({ results: this.state.results })
+    const filteredData = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm) || result.name.first.toLowerCase().includes(searchTerm) || result.name.last.toLowerCase().includes(searchTerm) || result.dob.date.toLowerCase().includes(searchTerm))
+    this.setState({ results: filteredData })
   };
 
   handleFormSubmit = event => {
@@ -39,18 +39,18 @@ class ResultContainer extends Component {
   };
 
   sortByNameHandler = () => {
-    this.state.results = this.state.results.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1);
-    this.setState({ results: this.state.results })
+    const sortedResults = this.state.results.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1);
+    this.setState({ results: sortedResults  })
   };
 
   sortByDOBHandler = () => {
-    this.state.results = this.state.results.sort((a, b) => (a.dob.date > b.dob.date) ? -1 : 1);
-    this.setState({ results: this.state.results })
+    const sortedResults = this.state.results.sort((a, b) => (a.dob.date > b.dob.date) ? -1 : 1);
+    this.setState({ results: sortedResults })
   };
 
   sortByCountryHandler = () => {
-    this.state.results = this.state.results.sort((a, b) => (a.location.country > b.location.country) ? 1 : -1);
-    this.setState({ results: this.state.results })
+    const sortedResults  = this.state.results.sort((a, b) => (a.location.country > b.location.country) ? 1 : -1);
+    this.setState({ results: sortedResults })
   };
 
   render() {
