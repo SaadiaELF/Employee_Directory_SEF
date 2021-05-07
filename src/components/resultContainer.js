@@ -19,9 +19,14 @@ class ResultContainer extends Component {
       .catch(err => console.log(err));
   };
 
+  searchHandler = (searchTerm) => {
+    this.state.results = this.state.results.filter(result => result.location.country.includes(searchTerm))
+    this.setState({ results: this.state.results})
+  };
 
   handleFormSubmit = event => {
     event.preventDefault();
+    this.searchHandler(this.state.search);
   };
 
   handleInputChange = event => {
