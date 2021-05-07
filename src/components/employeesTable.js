@@ -1,4 +1,5 @@
 import React from "react";
+import dateFormat from "dateformat";
 
 const styles = {
     tableStyle: {
@@ -26,7 +27,7 @@ function EmployeesTable(props) {
                             <tr  key={result.login.uuid} >
                                 <th scope="row">{`${result.name.first } ${result.name.last}`}</th>
                                 <td><img alt={`${result.name.first } ${result.name.last}`} className="img-fluid" src={result.picture.thumbnail} /></td>
-                                <td>{result.dob.date}</td>
+                                <td>{dateFormat(result.dob.date, "dd, mmmm, yyyy") }</td>
                                 <td>{result.location.city}</td>
                                 <td>{result.email}</td>
                                 <td>{result.cell}</td>
