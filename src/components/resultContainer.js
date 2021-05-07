@@ -6,6 +6,7 @@ import API from "../utils/API";
 class ResultContainer extends Component {
   state = {
     search: "",
+    sort: "",
     results: []
   };
 
@@ -37,8 +38,13 @@ class ResultContainer extends Component {
     });
   };
 
-  handleSort = () => {
-    this.state.results = this.state.results.sort((a, b) => (a.name.first> b.name.first) ? 1 : -1);
+  sortByNameHandler = () => {
+    this.state.results = this.state.results.sort((a, b) => (a.name.first > b.name.first) ? 1 : -1);
+    this.setState({ results: this.state.results })
+  };
+
+  sortByDOBHandler = () => {
+    this.state.results = this.state.results.sort((a, b) => (a.dob.date > b.dob.date) ? -1 : 1);
     this.setState({ results: this.state.results })
   };
 
@@ -52,7 +58,8 @@ class ResultContainer extends Component {
         />
         <EmployeesTable
           results={this.state.results}
-          handleSort={this.handleSort}
+          sortByNameHandler={this.sortByNameHandler}
+          sortByDOBHandler={this.sortByDOBHandler}
         />
       </div>
     );

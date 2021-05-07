@@ -14,9 +14,9 @@ function EmployeesTable(props) {
                 <table className="table align-middle table-hover table-bordered border-info mx-auto" style={styles.tableStyle}>
                     <thead>
                         <tr className="table-info">
-                            <th onClick={props.handleSort} scope="col">Name</th>
+                            <th onClick={props.sortByNameHandler} scope="col">Name</th>
                             <th scope="col">Photo</th>
-                            <th scope="col">Date of Birth</th>
+                            <th onClick={props.sortByDOBHandler} scope="col">Date of Birth</th>
                             <th scope="col">Country</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
