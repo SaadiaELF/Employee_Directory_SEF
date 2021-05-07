@@ -20,7 +20,7 @@ class ResultContainer extends Component {
   };
 
   searchHandler = (searchTerm) => {
-    this.state.results = this.state.results.filter(result => result.location.country.includes(searchTerm))
+    this.state.results = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm) || result.name.first.toLowerCase().includes(searchTerm) || result.name.last.toLowerCase().includes(searchTerm)|| result.dob.date.toLowerCase().includes(searchTerm))
     this.setState({ results: this.state.results})
   };
 
