@@ -1,14 +1,9 @@
 import React from "react";
-import EmployeesTable from "./components/employeesTable";
-import Jumbotron from "./components/jumbotron";
+import ResultContainer from "./components/resultContainer";
 
 function App() {
-  return (
-    <div>
-      <Jumbotron />
-      <EmployeesTable />
-    </div>
-  )
+  return <ResultContainer />;
 }
 
 export default App;
+
