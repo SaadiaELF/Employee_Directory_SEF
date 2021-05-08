@@ -21,7 +21,7 @@ class ResultContainer extends Component {
   };
 
   searchHandler = (searchTerm) => {
-    const filteredData = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm) || result.name.first.toLowerCase().includes(searchTerm) || result.name.last.toLowerCase().includes(searchTerm) || result.dob.date.toLowerCase().includes(searchTerm))
+    const filteredData = this.state.results.filter(result => result.location.country.toLowerCase().includes(searchTerm.toLowerCase()) || result.name.first.toLowerCase().includes(searchTerm.toLowerCase()) || result.name.last.toLowerCase().includes(searchTerm.toLowerCase()) || result.dob.date.toLowerCase().includes(searchTerm.toLowerCase()))
     this.setState({ results: filteredData })
   };
 
