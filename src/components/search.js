@@ -6,6 +6,7 @@ const styles = {
   }
 };
 
+// Rendering search input
 function Search(props) {
   return (
     <div className="input-group mb-3 position-absolute start-30 end-30 " style={styles.inputStyle}>

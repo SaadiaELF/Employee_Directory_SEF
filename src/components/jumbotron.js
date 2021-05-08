@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./search";
 
-
+// Creating a jumbotron holding a search input
 function Jumbotron(props) {
     return (
         <div className="p-5 m-4  bg-info border rounded-3">

@@ -7,6 +7,7 @@ const styles = {
     }
 };
 
+// Rendering employee table
 function EmployeesTable(props) {
     return (
         <div>
@@ -23,10 +24,12 @@ function EmployeesTable(props) {
                         </tr>
                     </thead>
                     <tbody>
+                        {/* Mapping through api results and creating a row for each user*/}
                         {props.results.map(result => (
                             <tr key={result.login.uuid} >
                                 <th scope="row">{`${result.name.first} ${result.name.last}`}</th>
                                 <td><img alt={`${result.name.first} ${result.name.last}`} className="img-fluid" src={result.picture.thumbnail} /></td>
+                                {/* formating date */}
                                 <td>{dateFormat(result.dob.date, "dd, mmmm, yyyy")}</td>
                                 <td>{result.location.country}</td>
                                 <td>{result.email}</td>
